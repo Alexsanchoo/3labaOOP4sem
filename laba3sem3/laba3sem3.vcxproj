@@ -121,6 +121,7 @@
     <ClCompile Include="ElectricalDevices.cpp" />
     <ClCompile Include="ExpShop.cpp" />
     <ClCompile Include="Fridge.cpp" />
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Iron.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="main.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="ElectricalDevices.h" />
     <ClInclude Include="ExpShop.h" />
     <ClInclude Include="Fridge.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="Iron.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Monitor.h" />

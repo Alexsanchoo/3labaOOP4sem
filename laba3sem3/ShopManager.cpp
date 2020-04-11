@@ -309,6 +309,52 @@ void ShopManager::editGood(Shop & shop)
 	}
 }
 
+void ShopManager::findGood(Shop & shop)
+{
+	string findStr;
+	cout << "Поиск: "; getline(cin, findStr);
+	cout << endl;
+	
+	vector<ElectricalDevices>* vecComp = DepartmentManager::findGood(findStr, shop.getComputerDep());
+	vector<ElectricalDevices>* vecHouse = DepartmentManager::findGood(findStr, shop.getHouseholdDep());
+
+	cout << "~~~" << shop.getComputerDep().getName() << "~~~" << endl;
+	if (vecComp->size())
+	{
+		for (size_t i = 0; i < vecComp->size(); i++)
+		{
+			cout << fixed << setprecision(2) << left <<
+				i + 1 << ". " << setw(15) << vecComp->at(i).getName() << " | " << setw(15) << vecComp->at(i).getManufacturer()
+				<< " | " << vecComp->at(i).getCost() << "$" << endl;
+		}
+	}
+	else
+	{
+		cout << "Нет совпадений!" << endl;
+	}
+	cout << endl;
+	
+	cout << "~~~" << shop.getHouseholdDep().getName() << "~~~" << endl;
+	if (vecHouse->size())
+	{
+		for (size_t i = 0; i < vecHouse->size(); i++)
+		{
+			cout << fixed << setprecision(2) << left <<
+				i + 1 << ". " << setw(15) << vecHouse->at(i).getName() << " | " << setw(15) << vecHouse->at(i).getManufacturer()
+				<< " | " << vecHouse->at(i).getCost() << "$" << endl;
+		}
+	}
+	else
+	{
+		cout << "Нет совпадений!" << endl;
+	}
+
+	delete vecComp;
+	vecComp = nullptr;
+	delete vecHouse;
+	vecHouse = nullptr;
+}
+
 
 void ShopManager::placeOrder(ClientData *&clientData, Order &order, Shop & shop)
 {

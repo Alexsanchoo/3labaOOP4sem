@@ -6,13 +6,6 @@ using namespace std;
 
 void term_func();
 
-
-//добавление +
-//удаление +
-//редактирование
-//просмотр +
-//поиск
-
 int main()
 {
 	SetConsoleCP(1251);
@@ -25,15 +18,16 @@ int main()
 	Order order;
 		
 	int choice = 0;
-	while (choice != 6)
+	while (choice != 7)
 	{
 		cout << "~~~~~" << shop.getName() << "~~~~" << endl;
 		cout << "1. Добавить товар в ассортимент" << endl;
 		cout << "2. Просмотреть ассортимент" << endl;
 		cout << "3. Удалить товар из ассортимента" << endl;
 		cout << "4. Изменить данные о товарах в ассортименте" << endl;
-		cout << "5. Оформить заказ" << endl;
-		cout << "6. Выход." << endl;
+		cout << "5. Поиск товара в ассортименте" << endl;
+		cout << "6. Оформить заказ" << endl;
+		cout << "7. Выход." << endl;
 		cout << "~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 		cout << "Сделайте выбор: ";
 		choice = ValidValue<>::getValue();
@@ -63,11 +57,17 @@ int main()
 			break;
 
 		case 5:
-			ShopManager::placeOrder(clientData, order, shop);
+			ShopManager::findGood(shop);
+			system("pause>>void");
 			system("cls");
 			break;
 
 		case 6:
+			ShopManager::placeOrder(clientData, order, shop);
+			system("cls");
+			break;
+
+		case 7:
 			break;
 
 		default:
