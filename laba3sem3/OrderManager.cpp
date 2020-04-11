@@ -17,7 +17,8 @@ int OrderManager::showGoods(Order & obj)
 	for (size_t i = 0; i < obj.getGoods().size(); i++)
 	{
 		cout << fixed << setprecision(2) << left << 
-			i + 1 << ". " << setw(15) << obj.getGoods()[i]->getName() << " | " << obj.getGoods()[i]->getCost() << "$" << endl;
+			i + 1 << ". " << setw(15) << obj.getGoods()[i]->getName() << " | " << setw(15) << obj.getGoods()[i]->getManufacturer()
+			<< " | " << obj.getGoods()[i]->getCost() << "$" << endl;
 	}
 	return 1;
 }

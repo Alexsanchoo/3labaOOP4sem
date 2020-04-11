@@ -15,6 +15,11 @@ void ElectricalDevices::setType(TypeGood type)
 	this->type = type;
 }
 
+void ElectricalDevices::setManufacturer(string manufacturer)
+{
+	this->manufacturer = manufacturer;
+}
+
 string ElectricalDevices::getName()
 {
 	return name;
@@ -28,5 +33,10 @@ double ElectricalDevices::getCost()
 TypeGood ElectricalDevices::getType()
 {
 	return type;
+}
+
+string ElectricalDevices::getManufacturer()
+{
+	return manufacturer;
 }
 

@@ -206,7 +206,34 @@ void ShopManager::editGood(Shop & shop)
 			}
 
 			system("cls");
-			DepartmentManager::editGood(recToEdit - 1, shop.getComputerDep());
+			int ch = 0;
+			while (ch != 3) {
+				cout << "Выберите поле для редактирования:" << endl;
+				cout << "1. Название производителя" << endl;
+				cout << "2. Цена" << endl;
+				cout << "3. Назад" << endl;
+				cout << "Сделайте выбор: ";
+				ch = ValidValue<>::getValue();
+
+				system("cls");
+				switch (ch) {
+				case 1:
+					DepartmentManager::editGood(recToEdit - 1, 1, shop.getComputerDep());
+					system("cls");
+					break;
+
+				case 2:
+					DepartmentManager::editGood(recToEdit - 1, 2, shop.getComputerDep());
+					system("cls");
+					break;
+
+				case 3:system("cls");
+					break;
+
+				default:
+					cout << "Неверный выбор!" << endl << endl;
+				}
+			}
 		}
 		system("cls");
 		break;
@@ -241,7 +268,34 @@ void ShopManager::editGood(Shop & shop)
 			}
 
 			system("cls");
-			DepartmentManager::editGood(recToEdit - 1, shop.getHouseholdDep());
+			int ch = 0;
+			while (ch != 3) {
+				cout << "Выберите поле для редактирования:" << endl;
+				cout << "1. Название производителя" << endl;
+				cout << "2. Цена" << endl;
+				cout << "3. Назад" << endl;
+				cout << "Сделайте выбор: ";
+				ch = ValidValue<>::getValue();
+
+				system("cls");
+				switch (ch) {
+				case 1:
+					DepartmentManager::editGood(recToEdit - 1, 1, shop.getHouseholdDep());
+					system("cls");
+					break;
+
+				case 2:
+					DepartmentManager::editGood(recToEdit - 1, 2, shop.getHouseholdDep());
+					system("cls");
+					break;
+
+				case 3:system("cls");
+					break;
+
+				default:
+					cout << "Неверный выбор!" << endl << endl;
+				}
+			}
 		}
 		system("cls");
 		break;
@@ -254,6 +308,7 @@ void ShopManager::editGood(Shop & shop)
 		}
 	}
 }
+
 
 void ShopManager::placeOrder(ClientData *&clientData, Order &order, Shop & shop)
 {

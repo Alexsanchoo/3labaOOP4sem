@@ -4,8 +4,9 @@ class Monitor :
 	public ElectricalDevices
 {
 public:
-	Monitor(double widthSh = 1920.0, double heightSh = 1080.0, string nameSh = "Монитор", double costSh = 350.43, TypeGood typeSh = COMPUTER) :
-		ElectricalDevices(nameSh, costSh, typeSh), width(widthSh), height(heightSh) {}
+	Monitor(double widthSh = 1920.0, double heightSh = 1080.0, string nameSh = "Монитор",
+		string manufacturer = "Panasonic", double costSh = 350.43, TypeGood typeSh = COMPUTER) :
+		ElectricalDevices(nameSh, manufacturer, costSh, typeSh), width(widthSh), height(heightSh) {}
 	Monitor(const Monitor &obj) : ElectricalDevices(obj), width(obj.width), height(obj.height) {}
 
 	void setWidth(double width);

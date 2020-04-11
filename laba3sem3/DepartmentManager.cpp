@@ -16,17 +16,35 @@ int DepartmentManager::showGoods(Department & obj)
 	for (size_t i = 0; i < obj.getGoods().size(); i++)
 	{
 		cout << fixed << setprecision(2) << left << 
-			i + 1 << ". " << setw(15) << obj.getGoods()[i]->getName() << " | " << obj.getGoods()[i]->getCost() << "$" << endl;
+			i + 1 << ". " << setw(15) << obj.getGoods()[i]->getName() << " | " << setw(15) << obj.getGoods()[i]->getManufacturer()
+			<< " | " << obj.getGoods()[i]->getCost() << "$" << endl;
 	}
 	return 1;
 }
 
-void DepartmentManager::editGood(int index, Department & obj)
+void DepartmentManager::editGood(int index, int fieldIndex, Department & obj)
 {
 	cout << "Название товара: " << obj.getGoods()[index]->getName() << endl;
-	cout << "Цена: " << obj.getGoods()[index]->getCost() << "$" << endl << endl;
-	cout << "Введите новую цену: ";
-	obj.getGoods()[index]->setCost(ValidValue<double>::getValue());
+	switch (fieldIndex) {
+	case 1:
+	{
+		cout << "Производитель: " << obj.getGoods()[index]->getManufacturer() << endl << endl;
+		cout << "Введите нового производителя: ";
+		obj.getGoods()[index]->setManufacturer(ValidValue<string>::getString());
+	}
+		break;
+
+	case 2:
+	{
+		cout << "Цена: " << obj.getGoods()[index]->getCost() << "$" << endl << endl;
+		cout << "Введите новую цену: ";
+		obj.getGoods()[index]->setCost(ValidValue<double>::getValue());
+	}
+		break;
+
+	default:
+		return;
+	}
 }
 
 ElectricalDevices * DepartmentManager::removeGood(int index, Department & obj)
