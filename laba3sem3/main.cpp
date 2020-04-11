@@ -7,10 +7,10 @@ using namespace std;
 void term_func();
 
 
-//добавление
-//удаление
+//добавление +
+//удаление +
 //редактирование
-//просмотр
+//просмотр +
 //поиск
 
 int main()
@@ -25,13 +25,14 @@ int main()
 	Order order;
 		
 	int choice = 0;
-	while (choice != 4)
+	while (choice != 5)
 	{
 		cout << "~~~~~" << shop.getName() << "~~~~" << endl;
 		cout << "1. Добавить товар в ассортимент" << endl;
 		cout << "2. Просмотреть ассортимент" << endl;
-		cout << "3. Оформить заказ" << endl;
-		cout << "4. Выход." << endl;
+		cout << "3. Удалить товар из ассортимента" << endl;
+		cout << "4. Оформить заказ" << endl;
+		cout << "5. Выход." << endl;
 		cout << "~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 		cout << "Сделайте выбор: ";
 		choice = ValidValue<>::getValue();
@@ -51,11 +52,16 @@ int main()
 			break;
 
 		case 3:
-			ShopManager::placeOrder(clientData, order, shop);
+			ShopManager::removeGood(shop);
 			system("cls");
 			break;
 
 		case 4:
+			ShopManager::placeOrder(clientData, order, shop);
+			system("cls");
+			break;
+
+		case 5:
 			break;
 
 		default:
