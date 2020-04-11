@@ -18,6 +18,7 @@ public:
 	static void addGood(Shop &shop);
 	static void showGoods(Shop &shop);
 	static void removeGood(Shop &shop);
+	static void editGood(Shop &shop);
 	static void placeOrder(ClientData *&clientData, Order &order, Shop &shop);
 };
 

@@ -21,6 +21,14 @@ int DepartmentManager::showGoods(Department & obj)
 	return 1;
 }
 
+void DepartmentManager::editGood(int index, Department & obj)
+{
+	cout << "Название товара: " << obj.getGoods()[index]->getName() << endl;
+	cout << "Цена: " << obj.getGoods()[index]->getCost() << "$" << endl << endl;
+	cout << "Введите новую цену: ";
+	obj.getGoods()[index]->setCost(ValidValue<double>::getValue());
+}
+
 ElectricalDevices * DepartmentManager::removeGood(int index, Department & obj)
 {
 	ElectricalDevices* temp = obj.getGoods()[index];

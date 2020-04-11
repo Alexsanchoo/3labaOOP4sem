@@ -16,7 +16,7 @@ public:
 	ClientData* getData();
 	double getTotalSum();
 	vector<ElectricalDevices*>& getGoods();
-	~Order() {}
+	~Order();
 
 private:
 	ClientData *data;

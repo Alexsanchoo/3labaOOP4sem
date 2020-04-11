@@ -161,6 +161,100 @@ void ShopManager::removeGood(Shop & shop)
 	}
 }
 
+void ShopManager::editGood(Shop & shop)
+{
+	int choice = 0;
+	while (choice != 3) {
+		cout << "Выберите отдел: " << endl;
+		cout << "1. Компьютерный отдел" << endl;
+		cout << "2. Бытовой отдел" << endl;
+		cout << "3. Назад" << endl;
+		cout << "Сделайте выбор: ";
+		choice = ValidValue<>::getValue();
+
+		system("cls");
+		switch (choice)
+		{
+
+		case 1:
+		{
+			int recToEdit = 0;
+			if (!DepartmentManager::showGoods(shop.getComputerDep())) {
+				cout << "~~~" << shop.getComputerDep().getName() << "~~~" << endl;
+				cout << "Нет товара!" << endl;
+				system("pause>>void");
+				system("cls");
+				break;
+			}
+			cout << endl << "Выберите товар для редактирования: ";
+			bool isValidInput = false;
+			while (!isValidInput)
+			{
+				try
+				{
+					recToEdit = ValidValue<>::getValue();
+					if (recToEdit < 1 || recToEdit > shop.getComputerDep().getGoods().size())
+					{
+						throw ExpShop("error", 1);
+					}
+					isValidInput = true;
+				}
+				catch (ExpShop ex)
+				{
+					cout << ex.what();
+				}
+			}
+
+			system("cls");
+			DepartmentManager::editGood(recToEdit - 1, shop.getComputerDep());
+		}
+		system("cls");
+		break;
+
+		case 2:
+		{
+			int recToEdit = 0;
+			if (!DepartmentManager::showGoods(shop.getHouseholdDep())) {
+				cout << "~~~" << shop.getHouseholdDep().getName() << "~~~" << endl;
+				cout << "Нет товара!" << endl;
+				system("pause>>void");
+				system("cls");
+				break;
+			}
+			cout << endl << "Выберите товар для редактирования: ";
+			bool isValidInput = false;
+			while (!isValidInput)
+			{
+				try
+				{
+					recToEdit = ValidValue<>::getValue();
+					if (recToEdit < 1 || recToEdit > shop.getHouseholdDep().getGoods().size())
+					{
+						throw ExpShop("error", 1);
+					}
+					isValidInput = true;
+				}
+				catch (ExpShop ex)
+				{
+					cout << ex.what();
+				}
+			}
+
+			system("cls");
+			DepartmentManager::editGood(recToEdit - 1, shop.getHouseholdDep());
+		}
+		system("cls");
+		break;
+
+		case 3:
+			break;
+
+		default:
+			break;
+		}
+	}
+}
+
 void ShopManager::placeOrder(ClientData *&clientData, Order &order, Shop & shop)
 {
 	{
