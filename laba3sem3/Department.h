@@ -13,7 +13,7 @@ public:
 	void setName(string name);
 	string getName();
 	vector<ElectricalDevices*>& getGoods();
-	~Department() {}
+	~Department();
 
 private:
 	string name;

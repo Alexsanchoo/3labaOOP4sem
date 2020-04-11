@@ -22,3 +22,12 @@ vector<ElectricalDevices*>& Department::getGoods()
 {
 	return goods;
 }
+
+Department::~Department()
+{
+	for (size_t i = 0; i < goods.size(); i++)
+	{
+		delete goods[i];
+		goods[i] = nullptr;
+	}
+}

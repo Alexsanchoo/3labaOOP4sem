@@ -32,3 +32,12 @@ vector<ElectricalDevices*>& Order::getGoods()
 {
 	return goods;
 }
+
+Order::~Order()
+{
+	for (size_t i = 0; i < goods.size(); i++)
+	{
+		delete goods[i];
+		goods[i] = nullptr;
+	}
+}
